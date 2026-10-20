@@ -4,163 +4,500 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MarkLeaf – 크롬 마크다운 뷰어·편집기</title>
-  <meta name="description" content="로컬 .md 파일을 크롬에서 읽기 좋은 문서로 열고, 보이는 그대로 고쳐 원래 파일에 저장하세요. 고친 곳만 바뀝니다. 무료, 가입 없음, 추적 없음.">
+  <meta name="description" content=".md 파일을 크롬에서 읽기 좋은 문서로 열고, 보이는 그대로 고쳐 원래 파일에 저장하세요. 고친 곳만 바뀝니다. 무료, 가입 없음, 추적 없음.">
+  <meta name="theme-color" content="#1e8053">
   <link rel="canonical" href="https://markleaf-site.vercel.app/ko/">
   <link rel="alternate" hreflang="en" href="https://markleaf-site.vercel.app/">
   <link rel="alternate" hreflang="ko" href="https://markleaf-site.vercel.app/ko/">
   <link rel="alternate" hreflang="x-default" href="https://markleaf-site.vercel.app/">
   <link rel="icon" href="../images/icon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MarkLeaf">
   <meta property="og:title" content="MarkLeaf – 크롬 마크다운 뷰어·편집기">
-  <meta property="og:description" content=".md 파일을 읽기 좋은 문서로 보여 주고, 보이는 그대로 고쳐 원래 파일에 저장합니다.">
+  <meta property="og:description" content="읽는 화면이 곧 고치는 화면. .md 파일을 읽기 좋은 문서로 보여 주고, 그 자리에서 고쳐 원래 파일에 저장합니다.">
   <meta property="og:url" content="https://markleaf-site.vercel.app/ko/">
-  <meta property="og:image" content="https://markleaf-site.vercel.app/images/ko/promo-marquee-1400x560.png">
+  <meta property="og:image" content="https://markleaf-site.vercel.app/images/ko/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="../images/ko/screenshot-1-read.jpg" as="image">
   <link rel="stylesheet" href="../style.css">
+  <script>try{var t=localStorage.getItem('markleaf-site-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
+  <script src="../site.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "MarkLeaf",
-    "alternateName": "MarkLeaf – 마크다운 뷰어·편집기",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Chrome, Edge, Whale (Chromium browsers)",
-    "description": "크롬에서 쓰는 마크다운 뷰어·편집기. .md 파일을 읽기 좋은 문서로 보여 주고, 그 화면 그대로 고쳐 원래 파일에 저장합니다.",
-    "url": "https://markleaf-site.vercel.app/ko/",
-    "downloadUrl": "https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia",
-    "image": "https://markleaf-site.vercel.app/images/ko/screenshot-1-read.png",
-    "inLanguage": ["ko", "en"],
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "MarkLeaf",
+        "alternateName": "MarkLeaf – 마크다운 뷰어·편집기",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Chrome, Edge, Whale",
+        "description": "크롬에서 쓰는 마크다운 뷰어·편집기. .md 파일을 읽기 좋은 문서로 보여 주고, 그 화면 그대로 고쳐 원래 파일에 저장합니다.",
+        "url": "https://markleaf-site.vercel.app/ko/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia",
+        "image": "https://markleaf-site.vercel.app/images/ko/screenshot-1-read.jpg",
+        "inLanguage": ["ko", "en"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "크롬에서 로컬 .md 파일은 어떻게 여나요?", "acceptedAnswer": { "@type": "Answer", "text": "MarkLeaf 를 설치하고 크롬 확장 프로그램 관리 → MarkLeaf 세부정보에서 \"파일 URL에 대한 액세스 허용\"을 켠 뒤, .md 파일을 크롬 창에 끌어다 놓으면 읽기 좋은 문서로 열립니다." } },
+          { "@type": "Question", "name": "마크다운 파일을 고쳐서 다시 저장할 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "네. 글자를 누르고 고치면 됩니다. 처음 저장할 때 파일을 고르거나 폴더를 허용하면, 그다음부터는 입력을 멈출 때 자동으로 저장하고 고친 부분만 바뀝니다." } },
+          { "@type": "Question", "name": "내 문서가 어딘가로 전송되나요?", "acceptedAnswer": { "@type": "Answer", "text": "아니요. MarkLeaf 에는 서버·분석·추적 코드가 없고, 모든 글꼴과 라이브러리가 확장 안에 들어 있습니다." } },
+          { "@type": "Question", "name": "유료인가요?", "acceptedAnswer": { "@type": "Answer", "text": "무료입니다." } }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="wrap nav">
-    <a class="brand" href="./"><img src="../images/icon.svg" alt="" width="32" height="32">MarkLeaf</a>
-    <nav class="nav__links" aria-label="페이지">
-      <a href="#why">MarkLeaf 가 다른 점</a>
-      <a href="#features">기능</a>
-      <a href="#faq">자주 묻는 질문</a>
-      <a href="../" hreflang="en" lang="en">English</a>
-    </nav>
-  </header>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-dash" viewBox="0 0 24 24"><path d="M7 12h10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-chrome" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 8.6h8.2M9 13.8l-4.1-7.1M15 13.8l-4.1 7.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M14 3v5h5M8.5 13.5v4l2-2 2 2v-4M15.5 13.5v4m-1.6-1.6 1.6 1.6 1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.3 10.5V8a3.7 3.7 0 0 1 7.4 0v2.5" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/><rect x="4" y="13" width="16" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3 21 21 3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6 9 6 9 6-3.3 6-9 6-9-6-9-6z" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M4 20 20 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M4 7.5 12 12l8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </svg>
 
-  <main>
-    <div class="hero">
-      <div class="wrap">
-        <h1>마크다운을 읽기 좋은 문서로, 보이는 그대로 고쳐 저장</h1>
-        <p>MarkLeaf 는 무료 크롬 마크다운 뷰어·편집기입니다. .md 파일을 깔끔한 문서로 열고, 읽던 화면에서 바로 고친 뒤 원래 파일에 저장하세요.</p>
-        <a class="cta" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=hero">크롬에 추가 — 무료</a>
-        <p class="hero__note">가입 없음 · 서버 없음 · 문서는 내 컴퓨터를 떠나지 않습니다</p>
-        <img class="hero__shot" src="../images/ko/screenshot-1-read.png" alt="MarkLeaf 가 마크다운 파일을 목차와 함께 읽기 좋은 문서로 보여 주는 화면" width="1280" height="800">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="./" aria-label="MarkLeaf 처음으로"><img src="../images/icon.svg" alt="" width="30" height="30">MarkLeaf</a>
+      <nav class="nav__links" aria-label="섹션">
+        <a href="#how">작동 방식</a>
+        <a href="#tour">기능</a>
+        <a href="#privacy">개인정보</a>
+        <a href="#faq">자주 묻는 질문</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="icon-button" href="../" hreflang="en" lang="en" aria-label="View in English">EN</a>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="다크 모드" aria-pressed="false">
+          <svg class="theme-icon--light" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="theme-icon--dark" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="button button--primary button--small nav__cta" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=nav">크롬에 추가</a>
       </div>
     </div>
+  </header>
 
-    <section id="why" class="wrap">
-      <h2>MarkLeaf 가 다른 점</h2>
-      <p class="lead">대부분의 마크다운 도구는 원문과 미리보기로 화면을 나눕니다. MarkLeaf 는 화면이 하나입니다. 읽는 화면이 곧 고치는 화면입니다.</p>
-      <div class="points">
-        <div class="point">
-          <h3>끌어다 놓으면 바로 문서</h3>
-          <p>로컬 .md 파일을 크롬에 끌어다 놓거나 GitHub 의 Raw 문서를 열면 제목·표·코드·수식·다이어그램이 바로 그려집니다.</p>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <a class="eyebrow" href="#tour" data-reveal><span class="eyebrow__tag">NEW 1.1</span>툴박스·오른쪽 클릭 메뉴·버전 기록</a>
+        <h1 data-reveal>읽는 화면이 곧<br> <span class="gradient-text nowrap">고치는 화면</span></h1>
+        <p class="hero__lead" data-reveal data-reveal-delay="1">MarkLeaf 는 크롬에서 연 마크다운 파일을 읽기 좋은 문서로 바꿔 줍니다. 읽던 자리를 누르고 바로 고치면, 손댄 곳만 원래 파일에 저장됩니다.</p>
+        <div class="hero__actions" data-reveal data-reveal-delay="2">
+          <a class="button button--primary" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=hero">
+            <svg aria-hidden="true"><use href="#i-chrome"/></svg>크롬에 무료로 추가
+          </a>
+          <a class="button button--ghost" href="#how">어떻게 동작하나요?</a>
         </div>
-        <div class="point">
-          <h3>보던 화면 그대로 고치기</h3>
-          <p>글자를 누르고 입력하세요. <code>/</code> 로 블록을 넣고, 글자를 고르면 툴박스, 오른쪽 클릭은 표·링크·코드에 맞춘 메뉴가 열립니다.</p>
-        </div>
-        <div class="point">
-          <h3>고친 곳만 저장</h3>
-          <p>원래 파일에 저장하면서 나머지 서식은 그대로 둡니다. 한 단어를 고치면 <code>git diff</code> 에 그 줄만 나옵니다.</p>
+        <ul class="hero__trust" data-reveal data-reveal-delay="2">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>무료</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>가입 없음</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>추적 없음</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>오프라인 동작</li>
+        </ul>
+
+        <div class="demo" data-demo data-stage="saved" data-reveal>
+          <div class="window">
+            <div class="window__chrome">
+              <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window__url"><svg aria-hidden="true"><use href="#i-file"/></svg>file:///C:/notes/주간-회의록.md</span>
+              <img class="window__ext" src="../images/icon.svg" alt="" width="22" height="22">
+            </div>
+            <div class="demo__stage">
+              <pre class="demo__raw" aria-hidden="true"><b>#</b> 주간 회의록
+
+1.1 출시 준비 끝. <b>**</b>고친 줄만<b>**</b> 바뀝니다.
+
+<b>- [x]</b> 1.1 출시는 다음 주 화요일
+<b>- [ ]</b> 스토어 스크린샷 다시 찍기
+
+<b>&gt; [!TIP]</b>
+<b>&gt;</b> 빈 줄에서 <b>`</b>/<b>`</b> 를 누르면 블록 목록
+
+<b>|</b> 영역 <b>|</b> 담당 <b>|</b>
+<b>|------|------|</b>
+<b>|</b> 문서 <b>|</b> 민아 <b>|</b></pre>
+              <div class="demo__doc">
+                <div class="demo__toc" aria-hidden="true">
+                  <p>목차</p>
+                  <span>주간 회의록</span>
+                  <span>결정</span>
+                  <span>담당</span>
+                </div>
+                <div class="demo__page">
+                  <div class="demo__bar">주간-회의록.md · 54자
+                    <span class="demo__save" data-demo-save data-state="saved" data-label-idle="저장됨" data-label-unsaved="● 저장 안 됨" data-label-saving="저장 중…" data-label-saved="✓ 저장됨">✓ 저장됨</span>
+                  </div>
+                  <h3>주간 회의록</h3>
+                  <p>1.1 출시 준비 끝. <mark><strong>고친 줄만</strong> 바뀝니다.</mark></p>
+                  <ul class="demo__tasks">
+                    <li><span class="demo__check demo__check--done"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span>1.1 출시는 <span class="demo__edit" data-demo-edit data-before="다음 주 화요일" data-after="이번 주 금요일">이번 주 금요일</span></span></li>
+                    <li><span class="demo__check"></span><span>스토어 스크린샷 다시 찍기</span></li>
+                  </ul>
+                  <div class="demo__callout"><strong>팁</strong>빈 줄에서 <code>/</code> 를 누르면 블록 목록</div>
+                  <table class="demo__table">
+                    <thead><tr><th>영역</th><th>담당</th></tr></thead>
+                    <tbody><tr><td>문서</td><td>민아</td></tr></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="demo__diff" aria-hidden="true">
+                <div class="demo__diff-head"><span>git diff 주간-회의록.md</span><span>1줄 바뀜</span></div>
+                <pre><span class="diff-hunk">@@ -5 +5 @@</span><span class="diff-del">- - [x] 1.1 출시는 다음 주 화요일</span><span class="diff-add">+ - [x] 1.1 출시는 이번 주 금요일</span></pre>
+              </div>
+            </div>
+          </div>
+          <ol class="demo__steps" aria-label="데모 단계">
+            <li><button type="button" data-demo-step="raw"><span>1</span>원문 .md</button></li>
+            <li><button type="button" data-demo-step="doc"><span>2</span>MarkLeaf 화면</button></li>
+            <li><button type="button" data-demo-step="edit"><span>3</span>그 자리에서 고치기</button></li>
+            <li><button type="button" data-demo-step="saved"><span>4</span>저장 — git 에 한 줄</button></li>
+            <li><button class="icon-button demo__replay" type="button" data-demo-replay aria-label="데모 다시 보기"><svg aria-hidden="true"><use href="#i-replay"/></svg></button></li>
+          </ol>
+          <p class="demo__note">움직이는 데모입니다. 실제 파일도 크롬에서 이렇게 열립니다.</p>
         </div>
       </div>
     </section>
 
-    <section id="features" class="wrap">
-      <h2>브라우저에서 마크다운에 필요한 모든 것</h2>
-      <p class="lead">마크다운 뷰어와 보이는 그대로 고치는 편집기를 확장 하나로.</p>
-
-      <div class="feature">
-        <div>
-          <h3>화면을 떠나지 않는 서식</h3>
-          <ul>
-            <li>굵게·기울임·링크·형광펜·글자색 툴박스</li>
-            <li><code>/</code> 메뉴로 제목·할 일·표·알림 상자·토글</li>
-            <li>⋮⋮ 손잡이로 블록 옮기기, 표 행·열 순서 바꾸기</li>
-          </ul>
-        </div>
-        <img src="../images/ko/screenshot-2-toolbox.png" alt="글자를 고르면 색 고르기가 있는 툴박스가 뜨는 화면" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>문서를 아는 오른쪽 클릭 메뉴</h3>
-          <ul>
-            <li>누른 곳에 맞춘 표·링크·이미지·코드·제목 메뉴</li>
-            <li>찾아 바꾸기, 명령 팔레트, 집중 모드, 발표 모드</li>
-          </ul>
-        </div>
-        <img src="../images/ko/screenshot-3-context-menu.png" alt="표 칸에서 오른쪽 클릭으로 정렬 메뉴를 연 화면" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>수식·다이어그램·다크 모드</h3>
-          <ul>
-            <li>KaTeX 수식, Mermaid 다이어그램</li>
-            <li>50개 넘는 언어의 코드 하이라이트</li>
-            <li>테마 5종, 라이트·다크, 글꼴·본문 폭 설정</li>
-          </ul>
-        </div>
-        <img src="../images/ko/screenshot-4-math-diagram-dark.png" alt="다크 모드에서 코드·수식·흐름도를 보여 주는 화면" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>버전 기록과 안전한 저장</h3>
-          <ul>
-            <li>저장할 때마다 이 컴퓨터에 버전을 남겨 비교하고 되돌리기</li>
-            <li>다른 프로그램이 파일을 바꿨으면 덮어쓰지 않고 비교를 보여 줌</li>
-            <li>PDF 또는 파일 하나로 된 HTML 로 내보내기</li>
-          </ul>
-        </div>
-        <img src="../images/ko/screenshot-5-history.png" alt="두 버전을 비교하는 버전 기록 창" width="1280" height="800" loading="lazy">
+    <section class="works" aria-label="이런 곳에서">
+      <div class="wrap">
+        <p>이런 곳에서</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-file"/></svg>내 컴퓨터의 .md 파일</li>
+          <li><svg aria-hidden="true"><use href="#i-code"/></svg>GitHub Raw 문서</li>
+          <li><svg aria-hidden="true"><use href="#i-globe"/></svg>허용한 사이트</li>
+          <li><svg aria-hidden="true"><use href="#i-chrome"/></svg>크롬 · 엣지 · 웨일</li>
+        </ul>
       </div>
     </section>
 
-    <section id="faq" class="wrap faq">
-      <h2>자주 묻는 질문</h2>
-      <details>
-        <summary>크롬에서 로컬 .md 파일은 어떻게 여나요?</summary>
-        <p>MarkLeaf 를 설치하고 크롬 확장 프로그램 관리 → MarkLeaf 세부정보에서 "파일 URL에 대한 액세스 허용"을 켜세요(설치 후 열리는 안내 페이지에 버튼이 있습니다). 그다음 .md 파일을 크롬 창에 끌어다 놓거나 <code>file:///</code> 주소로 열면 읽기 좋은 문서로 보입니다.</p>
-      </details>
-      <details>
-        <summary>마크다운 파일을 고쳐서 다시 저장할 수 있나요?</summary>
-        <p>네. 글자를 누르고 고치면 됩니다. 처음 저장할 때 크롬이 파일을 고르거나 폴더를 허용하라고 묻고, 그다음부터는 입력을 멈추면 자동으로 저장합니다. 고친 부분만 바뀝니다.</p>
-      </details>
-      <details>
-        <summary>GitHub 에서도 되나요?</summary>
-        <p>GitHub 의 Raw 버튼으로 연 마크다운 파일은 문서로 보입니다. 다른 사이트도 툴바 버튼에서 한 곳씩 허용할 수 있습니다.</p>
-      </details>
-      <details>
-        <summary>내 문서가 어딘가로 전송되나요?</summary>
-        <p>아니요. MarkLeaf 에는 서버·분석·추적 코드가 없고, 모든 글꼴과 라이브러리가 확장 안에 들어 있습니다. <a href="https://serbi2012.github.io/markleaf-privacy/">개인정보처리방침</a>을 확인하세요.</p>
-      </details>
-      <details>
-        <summary>엣지나 웨일에서도 쓸 수 있나요?</summary>
-        <p>MarkLeaf 는 크로미움 브라우저용입니다. 엣지와 웨일에서도 크롬 웹 스토어에서 설치할 수 있습니다.</p>
-      </details>
-      <details>
-        <summary>유료인가요?</summary>
-        <p>무료입니다.</p>
-      </details>
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">작동 방식</span>
+          <h2>미리보기 창도, 내보내기도 없이</h2>
+          <p>대부분의 마크다운 도구는 원문과 미리보기로 화면을 나눕니다. MarkLeaf 는 화면이 하나이고, 그 화면이 둘 다입니다.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <div class="step__visual step__visual--drop" aria-hidden="true">
+              <span class="file-chip"><svg><use href="#i-file"/></svg>README.md</span>
+              <svg class="drop-arrow"><use href="#i-arrow-down"/></svg>
+            </div>
+            <span class="step__num">1</span>
+            <h3>크롬에 끌어다 놓기</h3>
+            <p>.md 파일을 탭에 끌어다 놓거나 GitHub Raw 문서를 여세요. 제목·표·코드·수식·다이어그램이 바로 그려집니다.</p>
+          </li>
+          <li class="step" data-reveal data-reveal-delay="1">
+            <div class="step__visual" aria-hidden="true">
+              <span class="type-line">1.1 출시는 <em>이번 주 금요일</em><i></i></span>
+            </div>
+            <span class="step__num">2</span>
+            <h3>누르고 바로 입력</h3>
+            <p>읽던 자리에서 고칩니다. <kbd>/</kbd> 로 블록, 글자를 고르면 툴박스, 오른쪽 클릭은 상황에 맞는 메뉴.</p>
+          </li>
+          <li class="step" data-reveal data-reveal-delay="2">
+            <div class="step__visual" aria-hidden="true">
+              <div class="mini-diff"><span>@@ -5 +5 @@</span><span class="diff-del">- 1.1 출시는 다음 주 화요일</span><span class="diff-add">+ 1.1 출시는 이번 주 금요일</span></div>
+            </div>
+            <span class="step__num">3</span>
+            <h3>원래 파일에 저장</h3>
+            <p>고친 곳만 다시 씁니다. 띄어쓰기·목록 기호·줄바꿈은 원래 그대로 남습니다.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="tour">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">기능</span>
+          <h2>아름다운 뷰어 안에 숨은 완전한 편집기</h2>
+          <p>필요할 때 나타나고, 필요 없을 때는 비켜섭니다.</p>
+        </div>
+        <div class="tour" data-tabs data-reveal>
+          <div class="tour__tabs" role="tablist" aria-label="기능 둘러보기">
+            <button class="tour__tab" type="button" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true"><strong>완성된 문서처럼 읽기</strong><small>목차 사이드바, 테마 5종, 라이트·다크, 글꼴·본문 폭.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-toolbox" aria-controls="panel-toolbox" aria-selected="false" tabindex="-1"><strong>고르면 뜨는 툴박스</strong><small>굵게·링크·형광펜·글자색·각주·수식 — 보일 도구를 직접 고르세요.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-menu" aria-controls="panel-menu" aria-selected="false" tabindex="-1"><strong>블록을 아는 오른쪽 클릭</strong><small>표 행·정렬, 링크, 이미지, 코드, 제목.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1"><strong>수식·다이어그램·코드</strong><small>KaTeX, Mermaid, 50개 넘는 언어 하이라이트.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1"><strong>버전 기록</strong><small>저장할 때마다 이 컴퓨터에 남겨 비교하고 되돌리기.</small></button>
+          </div>
+          <div>
+            <figure class="tour__panel" role="tabpanel" id="panel-read" aria-labelledby="tab-read">
+              <div class="window"><img src="../images/ko/screenshot-1-read.jpg" alt="목차 사이드바와 함께 MarkLeaf 로 연 마크다운 문서" width="2560" height="1600"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-toolbox" aria-labelledby="tab-toolbox" hidden>
+              <div class="window"><img src="../images/ko/screenshot-2-toolbox.jpg" alt="글자를 고르면 뜨는 툴박스와 색 고르기" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-menu" aria-labelledby="tab-menu" hidden>
+              <div class="window"><img src="../images/ko/screenshot-3-context-menu.jpg" alt="표 칸 오른쪽 클릭 메뉴와 정렬 하위 메뉴" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-math" aria-labelledby="tab-math" hidden>
+              <div class="window"><img src="../images/ko/screenshot-4-math-diagram-dark.jpg" alt="다크 모드의 코드·수식·흐름도" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-history" aria-labelledby="tab-history" hidden>
+              <div class="window"><img src="../images/ko/screenshot-5-history.jpg" alt="두 버전을 비교하는 버전 기록 창" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="more">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">그리고 더</span>
+          <h2>마크다운으로 일하는 사람을 위해</h2>
+        </div>
+        <div class="bento">
+          <article class="card card--2" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="mock-menu">
+                <div class="mock-menu__query">/표<i></i></div>
+                <span data-active><b>⊞</b>표<small>3 × 3</small></span>
+                <span><b>☑</b>할 일 목록</span>
+                <span><b>▸</b>토글</span>
+              </div>
+            </div>
+            <h3>슬래시 명령</h3>
+            <p><kbd>/</kbd> 하나로 제목·할 일·표·알림 상자·토글·수식·다이어그램·이모지.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="mock-menu">
+                <div class="mock-menu__query">ㅎㅇㄹ<i></i></div>
+                <span data-active><b>#</b>회의록.md<small>docs/</small></span>
+                <span><b>#</b>2026-회의록.md<small>archive/</small></span>
+                <span><b>#</b>팀-회의록.md<small>wiki/</small></span>
+              </div>
+            </div>
+            <h3>폴더 전체를 한 번에</h3>
+            <p><kbd>Ctrl</kbd> <kbd>P</kbd> 빠른 열기(초성 검색), 폴더 전체 찾아 바꾸기, <code>[[링크]]</code>, 백링크, 깨진 링크 점검.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="2">
+            <div class="card__visual" aria-hidden="true">
+              <div class="swatches">
+                <span class="swatch swatch--leaf"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--paper"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--slate"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--sepia"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--contrast"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <h3>내 취향대로</h3>
+            <p>라이트·다크를 갖춘 테마 5종, 강조색, 글꼴·크기·줄 간격·본문 폭, 커스텀 CSS.</p>
+          </article>
+          <article class="card card--3" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="notice-mock">
+                <strong>다른 곳에서 이 파일이 바뀌었어요.</strong>
+                겹치지 않는 변경이라 MarkLeaf 가 자동으로 합쳤어요.
+                <div class="notice-mock__actions" style="margin-top:12px"><span>비교</span><span>합치기 되돌리기</span></div>
+              </div>
+            </div>
+            <h3>믿고 맡기는 저장</h3>
+            <p>입력을 멈추면 자동 저장. 다른 편집기가 파일을 바꿨다면 덮어쓰지 않고 합치거나 비교를 보여 줍니다.</p>
+          </article>
+          <article class="card card--3" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="copy-rows">
+                <div><span><kbd>Ctrl</kbd><kbd>C</kbd></span><span>제목·표·코드 색 그대로 메일·메신저·노션에 붙여넣기</span></div>
+                <div><span><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd></span><span>깔끔한 마크다운으로 복사</span></div>
+              </div>
+            </div>
+            <h3>어디로든 복사, 깔끔하게 붙여넣기</h3>
+            <p>웹·워드·구글 문서·노션에서 붙여넣으면 정돈된 마크다운이 됩니다.</p>
+          </article>
+          <article class="card card--2" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="chips"><span class="chip"><svg><use href="#i-pdf"/></svg>PDF</span><span class="chip"><svg><use href="#i-code"/></svg>HTML 파일 하나</span><span class="chip"><svg><use href="#i-sparkle"/></svg>템플릿</span></div>
+            </div>
+            <h3>내보내기·템플릿</h3>
+            <p>인쇄용 PDF, 그대로 열리는 HTML 파일 하나, 기본 템플릿 6종과 내 템플릿.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="chips"><span class="chip">집중 모드</span><span class="chip">발표 모드</span><span class="chip">읽어 주기</span><span class="chip">절 접기</span></div>
+            </div>
+            <h3>여러 가지 읽기</h3>
+            <p><code>---</code> 로 나눈 슬라이드 발표, 기기 안 음성으로 듣기, 집중 모드로 본문만 보기.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="2">
+            <div class="card__visual" aria-hidden="true">
+              <div class="kbd-grid">
+                <div>명령 팔레트<span><kbd>Ctrl</kbd><kbd>K</kbd></span></div>
+                <div>찾아 바꾸기<span><kbd>Ctrl</kbd><kbd>H</kbd></span></div>
+                <div>키보드로 툴박스<span><kbd>Alt</kbd><kbd>F10</kbd></span></div>
+              </div>
+            </div>
+            <h3>키보드만으로</h3>
+            <p>모든 동작에 단축키가 있고, 마우스 없이도 편집할 수 있습니다. <kbd>Ctrl</kbd> <kbd>/</kbd> 로 전체 목록을 보세요.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <div class="wrap">
+        <span class="kicker" data-reveal>처음부터 개인정보를 지키도록</span>
+        <h2 data-reveal>문서는 내 컴퓨터를 떠나지 않습니다.</h2>
+        <p class="privacy__lead" data-reveal>MarkLeaf 는 브라우저 안에서만 동작합니다. 가입할 것도, 보낼 것도 없습니다.</p>
+        <div class="privacy__grid">
+          <div class="privacy__item" data-reveal>
+            <svg aria-hidden="true"><use href="#i-server"/></svg>
+            <h3>서버 없음</h3>
+            <p>읽기·고치기·저장·버전 기록이 모두 이 기기 안에서 이뤄집니다.</p>
+          </div>
+          <div class="privacy__item" data-reveal data-reveal-delay="1">
+            <svg aria-hidden="true"><use href="#i-eye-off"/></svg>
+            <h3>분석·추적 없음</h3>
+            <p>사용 기록, 쿠키, 외부 스크립트가 확장 안에 없습니다.</p>
+          </div>
+          <div class="privacy__item" data-reveal data-reveal-delay="2">
+            <svg aria-hidden="true"><use href="#i-box"/></svg>
+            <h3>모두 확장 안에</h3>
+            <p>글꼴·수식·다이어그램 라이브러리를 확장에 담아 인터넷이 없어도 됩니다.</p>
+          </div>
+        </div>
+        <p class="permissions" data-reveal>
+          요청하는 권한은 이것뿐: <code>storage</code> <code>activeTab</code> <code>scripting</code> <code>file:///*</code> <code>raw.githubusercontent.com</code>
+          <a href="https://serbi2012.github.io/markleaf-privacy/">개인정보처리방침 보기 →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">왜 MarkLeaf 인가</span>
+          <h2>읽기와 고치기가, 드디어 같은 화면에서</h2>
+        </div>
+        <div class="compare" data-reveal>
+          <table>
+            <thead>
+              <tr><th scope="col"><span class="sr-only">기능</span></th><th scope="col">읽기 전용 뷰어</th><th scope="col">분할 미리보기 편집기</th><th scope="col" class="is-us">MarkLeaf</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">.md 를 깔끔한 문서로 보기</th><td><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td><td><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">읽는 화면에서 바로 고치기</th><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">크롬 안에서 바로 열기</th><td><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">원래 파일에 저장</th><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">고친 줄만 다시 쓰기</th><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="제품마다 다름"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">이 컴퓨터에 버전 기록</th><td><span class="no" aria-label="아니요"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="제품마다 다름"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="예"><svg><use href="#i-check"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare__note">각 종류의 도구에서 흔한 경우를 기준으로 비교했습니다. 제품마다 다를 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">자주 묻는 질문</span>
+          <h2>궁금한 점</h2>
+        </div>
+        <div class="faq" data-reveal>
+          <div>
+            <details>
+              <summary>크롬에서 로컬 .md 파일은 어떻게 여나요?</summary>
+              <p>MarkLeaf 를 설치하고 크롬 확장 프로그램 관리 → MarkLeaf 세부정보에서 "파일 URL에 대한 액세스 허용"을 켜세요. 설치 후 열리는 안내 페이지에 버튼이 있습니다. 그다음 .md 파일을 크롬 창에 끌어다 놓거나 <code>file:///</code> 주소로 열면 됩니다.</p>
+            </details>
+            <details>
+              <summary>마크다운 파일을 고쳐서 다시 저장할 수 있나요?</summary>
+              <p>네. 글자를 누르고 고치면 됩니다. 처음 저장할 때 크롬이 파일을 고르거나 폴더를 허용하라고 묻고, 그다음부터는 입력을 멈추면 자동으로 저장합니다. 고친 부분만 바뀝니다.</p>
+            </details>
+            <details>
+              <summary>서식이나 git 기록이 망가지지 않나요?</summary>
+              <p>망가지지 않습니다. 손대지 않은 곳은 목록 기호·띄어쓰기·줄바꿈까지 원문 그대로 둡니다. 한 단어를 고치면 <code>git diff</code> 에 한 줄만 나옵니다.</p>
+            </details>
+            <details>
+              <summary>GitHub 에서도 되나요?</summary>
+              <p>GitHub 의 Raw 버튼으로 연 마크다운 파일은 문서로 보입니다. 다른 사이트도 툴바 버튼에서 한 곳씩 허용할 수 있습니다.</p>
+            </details>
+          </div>
+          <div>
+            <details>
+              <summary>내 문서가 어딘가로 전송되나요?</summary>
+              <p>아니요. MarkLeaf 에는 서버·분석·추적 코드가 없고, 모든 글꼴과 라이브러리가 확장 안에 들어 있습니다. <a href="https://serbi2012.github.io/markleaf-privacy/">개인정보처리방침</a>을 확인하세요.</p>
+            </details>
+            <details>
+              <summary>엣지나 웨일에서도 쓸 수 있나요?</summary>
+              <p>MarkLeaf 는 크로미움 브라우저용입니다. 엣지와 웨일에서도 크롬 웹 스토어에서 설치할 수 있습니다.</p>
+            </details>
+            <details>
+              <summary>어떤 언어를 지원하나요?</summary>
+              <p>화면은 한국어와 영어이고 브라우저 언어를 따라갑니다. 문서는 어떤 언어든 상관없습니다.</p>
+            </details>
+            <details>
+              <summary>유료인가요?</summary>
+              <p>무료입니다. 가입도, 체험 기간도, 제한도 없습니다.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="final" data-reveal>
+        <img src="../images/icon.svg" alt="" width="84" height="84">
+        <h2>마크다운 파일에 어울리는 화면을 선물하세요.</h2>
+        <p>몇 초면 설치 끝. .md 파일을 열고 바로 고치세요.</p>
+        <a class="button button--light" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=final">
+          <svg aria-hidden="true"><use href="#i-chrome"/></svg>크롬에 무료로 추가
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="wrap">
-      <span>© MarkLeaf</span>
-      <span><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=footer">크롬 웹 스토어</a> · <a href="https://serbi2012.github.io/markleaf-privacy/">개인정보처리방침</a> · <a href="../" hreflang="en" lang="en">English</a></span>
+      <div class="footer__inner">
+        <div>
+          <a class="brand" href="./"><img src="../images/icon.svg" alt="" width="30" height="30">MarkLeaf</a>
+          <p>크롬에서 쓰는 마크다운 뷰어·편집기. 읽기 좋게 보여 주고, 그 자리에서 고쳐 원래 파일에 저장합니다.</p>
+        </div>
+        <div>
+          <h4>제품</h4>
+          <ul>
+            <li><a href="#tour">기능</a></li>
+            <li><a href="#faq">자주 묻는 질문</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?hl=ko&amp;utm_source=markleaf-site&amp;utm_medium=footer">크롬 웹 스토어</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>더 보기</h4>
+          <ul>
+            <li><a href="https://serbi2012.github.io/markleaf-privacy/">개인정보처리방침</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia/support?hl=ko">문의·지원</a></li>
+            <li><a href="../" hreflang="en" lang="en">English</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__bottom">© <span data-year>2026</span> MarkLeaf</p>
     </div>
   </footer>
 </body>

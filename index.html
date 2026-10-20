@@ -4,162 +4,500 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MarkLeaf – Markdown Viewer &amp; Editor for Chrome</title>
-  <meta name="description" content="Open local .md files in Chrome as clean documents and edit them right on the page. MarkLeaf saves back to the original file and changes only what you edited. Free, no account, no tracking.">
+  <meta name="description" content="Open .md files in Chrome as clean documents and edit them right on the page. MarkLeaf saves back to the original file and changes only what you edited. Free, no account, no tracking.">
+  <meta name="theme-color" content="#1e8053">
   <link rel="canonical" href="https://markleaf-site.vercel.app/">
   <link rel="alternate" hreflang="en" href="https://markleaf-site.vercel.app/">
   <link rel="alternate" hreflang="ko" href="https://markleaf-site.vercel.app/ko/">
   <link rel="alternate" hreflang="x-default" href="https://markleaf-site.vercel.app/">
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MarkLeaf">
   <meta property="og:title" content="MarkLeaf – Markdown Viewer & Editor for Chrome">
-  <meta property="og:description" content="Read .md files as clean documents and edit them in place, saving back to the original file.">
+  <meta property="og:description" content="The page you read is the page you edit. Open .md files as clean documents, edit in place and save back to the original file.">
   <meta property="og:url" content="https://markleaf-site.vercel.app/">
-  <meta property="og:image" content="https://markleaf-site.vercel.app/images/en/promo-marquee-1400x560.png">
+  <meta property="og:image" content="https://markleaf-site.vercel.app/images/en/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="images/en/screenshot-1-read.jpg" as="image">
   <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem('markleaf-site-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
+  <script src="site.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "MarkLeaf",
-    "alternateName": "MarkLeaf – Markdown Viewer & Editor",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Chrome, Edge, Whale (Chromium browsers)",
-    "description": "A Markdown viewer and editor for Chrome. Opens .md files as clean documents, edits them in place and saves back to the original file.",
-    "url": "https://markleaf-site.vercel.app/",
-    "downloadUrl": "https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia",
-    "image": "https://markleaf-site.vercel.app/images/en/screenshot-1-read.png",
-    "inLanguage": ["en", "ko"],
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "MarkLeaf",
+        "alternateName": "MarkLeaf – Markdown Viewer & Editor",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Chrome, Edge, Whale",
+        "description": "A Markdown viewer and editor for Chrome. Opens .md files as clean documents, edits them in place and saves back to the original file.",
+        "url": "https://markleaf-site.vercel.app/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia",
+        "image": "https://markleaf-site.vercel.app/images/en/screenshot-1-read.jpg",
+        "inLanguage": ["en", "ko"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I open a local .md file in Chrome?", "acceptedAnswer": { "@type": "Answer", "text": "Install MarkLeaf and turn on \"Allow access to file URLs\" in Chrome's extension details for MarkLeaf. Then drag any .md file into a Chrome window and it opens as a readable document." } },
+          { "@type": "Question", "name": "Can I edit a Markdown file and save it back?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the text and edit. The first time you save, Chrome asks you to pick the file or allow its folder. After that MarkLeaf saves automatically when you pause, rewriting only the parts you changed." } },
+          { "@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. MarkLeaf has no servers, analytics or tracking, and all fonts and libraries are bundled in the extension." } },
+          { "@type": "Question", "name": "How much does MarkLeaf cost?", "acceptedAnswer": { "@type": "Answer", "text": "MarkLeaf is free." } }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="wrap nav">
-    <a class="brand" href="./"><img src="images/icon.svg" alt="" width="32" height="32">MarkLeaf</a>
-    <nav class="nav__links" aria-label="Page">
-      <a href="#why">Why MarkLeaf</a>
-      <a href="#features">Features</a>
-      <a href="#faq">FAQ</a>
-      <a href="ko/" hreflang="ko" lang="ko">한국어</a>
-    </nav>
-  </header>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-dash" viewBox="0 0 24 24"><path d="M7 12h10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-chrome" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 8.6h8.2M9 13.8l-4.1-7.1M15 13.8l-4.1 7.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M14 3v5h5M8.5 13.5v4l2-2 2 2v-4M15.5 13.5v4m-1.6-1.6 1.6 1.6 1.6-1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.3 10.5V8a3.7 3.7 0 0 1 7.4 0v2.5" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/><rect x="4" y="13" width="16" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3 21 21 3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6 9 6 9 6-3.3 6-9 6-9-6-9-6z" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="2.8" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M4 20 20 4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M4 7.5 12 12l8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </svg>
 
-  <main>
-    <div class="hero">
-      <div class="wrap">
-        <h1>Markdown, beautifully. Edit right on the page.</h1>
-        <p>MarkLeaf is a free Markdown viewer and editor for Chrome. Open any .md file as a clean document, click to edit it where you read it, and save back to the original file.</p>
-        <a class="cta" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=hero">Add to Chrome — it's free</a>
-        <p class="hero__note">No account. No servers. Your documents never leave your computer.</p>
-        <img class="hero__shot" src="images/en/screenshot-1-read.png" alt="A Markdown file shown by MarkLeaf as a clean document with an outline sidebar" width="1280" height="800">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="./" aria-label="MarkLeaf home"><img src="images/icon.svg" alt="" width="30" height="30">MarkLeaf</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#how">How it works</a>
+        <a href="#tour">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="icon-button" href="ko/" hreflang="ko" lang="ko" aria-label="한국어로 보기">KO</a>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Dark mode" aria-pressed="false">
+          <svg class="theme-icon--light" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="theme-icon--dark" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="button button--primary button--small nav__cta" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=nav">Add to Chrome</a>
       </div>
     </div>
+  </header>
 
-    <section id="why" class="wrap">
-      <h2>Why MarkLeaf</h2>
-      <p class="lead">Most Markdown tools split the screen into source and preview. MarkLeaf has one screen: the page you read is the page you edit.</p>
-      <div class="points">
-        <div class="point">
-          <h3>Drop a file, get a document</h3>
-          <p>Drag a local .md file into Chrome, or open a GitHub "Raw" page. Headings, tables, code, math and diagrams render instantly.</p>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <a class="eyebrow" href="#tour" data-reveal><span class="eyebrow__tag">NEW 1.1</span>Toolbox, right-click menus and version history</a>
+        <h1 data-reveal>The page you read is<br> <span class="gradient-text nowrap">the page you edit.</span></h1>
+        <p class="hero__lead" data-reveal data-reveal-delay="1">MarkLeaf turns any Markdown file in Chrome into a clean, readable document. Click to edit right where you read, and it saves back to the original file, changing only what you touched.</p>
+        <div class="hero__actions" data-reveal data-reveal-delay="2">
+          <a class="button button--primary" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=hero">
+            <svg aria-hidden="true"><use href="#i-chrome"/></svg>Add to Chrome — it's free
+          </a>
+          <a class="button button--ghost" href="#how">See how it works</a>
         </div>
-        <div class="point">
-          <h3>Edit in place</h3>
-          <p>Click any text and type. Press <code>/</code> for blocks, select text for the toolbox, right-click for a menu that knows tables, links and code.</p>
-        </div>
-        <div class="point">
-          <h3>Saves only what you changed</h3>
-          <p>MarkLeaf writes back to the original file and keeps your formatting. Fix one word and <code>git diff</code> shows that one line.</p>
+        <ul class="hero__trust" data-reveal data-reveal-delay="2">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>No account</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>No tracking</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Works offline</li>
+        </ul>
+
+        <div class="demo" data-demo data-stage="saved" data-reveal>
+          <div class="window">
+            <div class="window__chrome">
+              <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window__url"><svg aria-hidden="true"><use href="#i-file"/></svg>file:///C:/notes/weekly-notes.md</span>
+              <img class="window__ext" src="images/icon.svg" alt="" width="22" height="22">
+            </div>
+            <div class="demo__stage">
+              <pre class="demo__raw" aria-hidden="true"><b>#</b> Weekly notes
+
+Release <b>**</b>1.1<b>**</b> is ready. Only the lines you edit change.
+
+<b>- [x]</b> Ship 1.1 next Tuesday
+<b>- [ ]</b> Retake the store screenshots
+
+<b>&gt; [!TIP]</b>
+<b>&gt;</b> Press <b>`</b>/<b>`</b> on an empty line for blocks.
+
+<b>|</b> Area <b>|</b> Owner <b>|</b>
+<b>|------|-------|</b>
+<b>|</b> Docs <b>|</b> Mina  <b>|</b></pre>
+              <div class="demo__doc">
+                <div class="demo__toc" aria-hidden="true">
+                  <p>Contents</p>
+                  <span>Weekly notes</span>
+                  <span>Decisions</span>
+                  <span>Owners</span>
+                </div>
+                <div class="demo__page">
+                  <div class="demo__bar">weekly-notes.md · 18 words
+                    <span class="demo__save" data-demo-save data-state="saved" data-label-idle="Saved" data-label-unsaved="● Unsaved" data-label-saving="Saving…" data-label-saved="✓ Saved">✓ Saved</span>
+                  </div>
+                  <h3>Weekly notes</h3>
+                  <p>Release <strong>1.1</strong> is ready. <mark>Only the lines you edit change.</mark></p>
+                  <ul class="demo__tasks">
+                    <li><span class="demo__check demo__check--done"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span>Ship 1.1 <span class="demo__edit" data-demo-edit data-before="next Tuesday" data-after="on Monday">on Monday</span></span></li>
+                    <li><span class="demo__check"></span><span>Retake the store screenshots</span></li>
+                  </ul>
+                  <div class="demo__callout"><strong>Tip</strong>Press <code>/</code> on an empty line for blocks.</div>
+                  <table class="demo__table">
+                    <thead><tr><th>Area</th><th>Owner</th></tr></thead>
+                    <tbody><tr><td>Docs</td><td>Mina</td></tr></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="demo__diff" aria-hidden="true">
+                <div class="demo__diff-head"><span>git diff weekly-notes.md</span><span>1 line changed</span></div>
+                <pre><span class="diff-hunk">@@ -5 +5 @@</span><span class="diff-del">- - [x] Ship 1.1 next Tuesday</span><span class="diff-add">+ - [x] Ship 1.1 on Monday</span></pre>
+              </div>
+            </div>
+          </div>
+          <ol class="demo__steps" aria-label="Demo steps">
+            <li><button type="button" data-demo-step="raw"><span>1</span>Raw .md</button></li>
+            <li><button type="button" data-demo-step="doc"><span>2</span>MarkLeaf view</button></li>
+            <li><button type="button" data-demo-step="edit"><span>3</span>Edit in place</button></li>
+            <li><button type="button" data-demo-step="saved"><span>4</span>Saved — one line in git</button></li>
+            <li><button class="icon-button demo__replay" type="button" data-demo-replay aria-label="Replay demo"><svg aria-hidden="true"><use href="#i-replay"/></svg></button></li>
+          </ol>
+          <p class="demo__note">Animated demo. Your files open exactly like this in Chrome.</p>
         </div>
       </div>
     </section>
 
-    <section id="features" class="wrap">
-      <h2>Everything you need for Markdown in the browser</h2>
-      <p class="lead">A full Markdown reader and a WYSIWYG-style editor, in one extension.</p>
-
-      <div class="feature">
-        <div>
-          <h3>Format without leaving the page</h3>
-          <ul>
-            <li>Toolbox for bold, italic, links, highlight and text colors</li>
-            <li>Slash menu for headings, to-dos, tables, callouts and toggles</li>
-            <li>Drag blocks with the ⋮⋮ handle, reorder table rows and columns</li>
-          </ul>
-        </div>
-        <img src="images/en/screenshot-2-toolbox.png" alt="Selecting text opens a formatting toolbox with color options" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>Right-click menus that understand your document</h3>
-          <ul>
-            <li>Table, link, image, code and heading actions where you click</li>
-            <li>Find and replace, command palette, focus and presentation modes</li>
-          </ul>
-        </div>
-        <img src="images/en/screenshot-3-context-menu.png" alt="A right-click menu on a table cell with alignment options" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>Math, diagrams and dark mode</h3>
-          <ul>
-            <li>KaTeX math and Mermaid diagrams</li>
-            <li>Code highlighting for 50+ languages</li>
-            <li>Five themes, light and dark, custom fonts and widths</li>
-          </ul>
-        </div>
-        <img src="images/en/screenshot-4-math-diagram-dark.png" alt="Dark mode with code, a math formula and a flow diagram" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="feature">
-        <div>
-          <h3>Version history and safe saving</h3>
-          <ul>
-            <li>Every save keeps a local version you can compare and restore</li>
-            <li>If another program changes the file, MarkLeaf shows a comparison instead of overwriting</li>
-            <li>Export to PDF or a single HTML file</li>
-          </ul>
-        </div>
-        <img src="images/en/screenshot-5-history.png" alt="Version history panel comparing two saved versions" width="1280" height="800" loading="lazy">
+    <section class="works" aria-label="Works with">
+      <div class="wrap">
+        <p>Works with</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-file"/></svg>Local .md files</li>
+          <li><svg aria-hidden="true"><use href="#i-code"/></svg>GitHub Raw pages</li>
+          <li><svg aria-hidden="true"><use href="#i-globe"/></svg>Sites you allow</li>
+          <li><svg aria-hidden="true"><use href="#i-chrome"/></svg>Chrome · Edge · Whale</li>
+        </ul>
       </div>
     </section>
 
-    <section id="faq" class="wrap faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>How do I open a local .md file in Chrome?</summary>
-        <p>Install MarkLeaf, then turn on "Allow access to file URLs" in Chrome's extension details for MarkLeaf (the welcome page has a button for it). Now drag any .md file into a Chrome window, or open it with a <code>file:///</code> address. It shows up as a readable document.</p>
-      </details>
-      <details>
-        <summary>Can I edit a Markdown file and save it back?</summary>
-        <p>Yes. Click the text and edit. The first time you save, Chrome asks you to pick the file or allow its folder. After that MarkLeaf saves automatically when you pause typing, rewriting only the parts you changed.</p>
-      </details>
-      <details>
-        <summary>Does it work with GitHub?</summary>
-        <p>Markdown files opened with GitHub's "Raw" button are shown as documents. You can also allow other sites one at a time from the toolbar button.</p>
-      </details>
-      <details>
-        <summary>Is my data sent anywhere?</summary>
-        <p>No. MarkLeaf has no servers, analytics or tracking. All fonts and libraries are bundled in the extension. Read the <a href="https://serbi2012.github.io/markleaf-privacy/">privacy policy</a>.</p>
-      </details>
-      <details>
-        <summary>Does it work in Edge or Whale?</summary>
-        <p>MarkLeaf is built for Chromium browsers. Edge and Whale can install it from the Chrome Web Store.</p>
-      </details>
-      <details>
-        <summary>How much does it cost?</summary>
-        <p>MarkLeaf is free.</p>
-      </details>
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">How it works</span>
+          <h2>No preview pane. No export step.</h2>
+          <p>Most Markdown tools split your screen into source and preview. MarkLeaf gives you one screen that is both.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <div class="step__visual step__visual--drop" aria-hidden="true">
+              <span class="file-chip"><svg><use href="#i-file"/></svg>README.md</span>
+              <svg class="drop-arrow"><use href="#i-arrow-down"/></svg>
+            </div>
+            <span class="step__num">1</span>
+            <h3>Drop a file into Chrome</h3>
+            <p>Drag a local .md file into a tab or open a GitHub Raw page. Headings, tables, code, math and diagrams render instantly.</p>
+          </li>
+          <li class="step" data-reveal data-reveal-delay="1">
+            <div class="step__visual" aria-hidden="true">
+              <span class="type-line">Ship 1.1 <em>on Monday</em><i></i></span>
+            </div>
+            <span class="step__num">2</span>
+            <h3>Click and type</h3>
+            <p>Edit text where you read it. Press <kbd>/</kbd> for blocks, select text for the toolbox, right-click for smart menus.</p>
+          </li>
+          <li class="step" data-reveal data-reveal-delay="2">
+            <div class="step__visual" aria-hidden="true">
+              <div class="mini-diff"><span>@@ -5 +5 @@</span><span class="diff-del">- Ship 1.1 next Tuesday</span><span class="diff-add">+ Ship 1.1 on Monday</span></div>
+            </div>
+            <span class="step__num">3</span>
+            <h3>It saves to the original file</h3>
+            <p>Only what you changed is rewritten. Your spacing, list markers and line breaks stay as they were.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="tour">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">Features</span>
+          <h2>A full Markdown editor, hiding inside a beautiful reader</h2>
+          <p>Everything appears when you need it and gets out of the way when you don't.</p>
+        </div>
+        <div class="tour" data-tabs data-reveal>
+          <div class="tour__tabs" role="tablist" aria-label="Feature tour">
+            <button class="tour__tab" type="button" role="tab" id="tab-read" aria-controls="panel-read" aria-selected="true"><strong>Reading that feels finished</strong><small>Outline sidebar, five themes, light and dark, fonts and page width.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-toolbox" aria-controls="panel-toolbox" aria-selected="false" tabindex="-1"><strong>Toolbox on selection</strong><small>Bold, links, highlight and text colors, footnotes, math — pick the tools you see.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-menu" aria-controls="panel-menu" aria-selected="false" tabindex="-1"><strong>Right-click that knows the block</strong><small>Table rows and alignment, links, images, code and headings.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1"><strong>Math, diagrams, code</strong><small>KaTeX, Mermaid and highlighting for 50+ languages.</small></button>
+            <button class="tour__tab" type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1"><strong>Version history</strong><small>Every save keeps a local version to compare and restore.</small></button>
+          </div>
+          <div>
+            <figure class="tour__panel" role="tabpanel" id="panel-read" aria-labelledby="tab-read">
+              <div class="window"><img src="images/en/screenshot-1-read.jpg" alt="A Markdown document in MarkLeaf with an outline sidebar" width="2560" height="1600"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-toolbox" aria-labelledby="tab-toolbox" hidden>
+              <div class="window"><img src="images/en/screenshot-2-toolbox.jpg" alt="Selected text with the formatting toolbox and color panel" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-menu" aria-labelledby="tab-menu" hidden>
+              <div class="window"><img src="images/en/screenshot-3-context-menu.jpg" alt="Right-click menu on a table cell with alignment options" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-math" aria-labelledby="tab-math" hidden>
+              <div class="window"><img src="images/en/screenshot-4-math-diagram-dark.jpg" alt="Dark mode with highlighted code, a formula and a flow diagram" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+            <figure class="tour__panel" role="tabpanel" id="panel-history" aria-labelledby="tab-history" hidden>
+              <div class="window"><img src="images/en/screenshot-5-history.jpg" alt="Version history comparing two saved versions" width="2560" height="1600" loading="lazy"></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="more">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">And much more</span>
+          <h2>Built for people who live in Markdown</h2>
+        </div>
+        <div class="bento">
+          <article class="card card--2" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="mock-menu">
+                <div class="mock-menu__query">/tab<i></i></div>
+                <span data-active><b>⊞</b>Table<small>3 × 3</small></span>
+                <span><b>☑</b>To-do list</span>
+                <span><b>▸</b>Toggle</span>
+              </div>
+            </div>
+            <h3>Slash commands</h3>
+            <p>Type <kbd>/</kbd> for headings, to-dos, tables, callouts, toggles, math, diagrams and emoji.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="mock-menu">
+                <div class="mock-menu__query">meeting<i></i></div>
+                <span data-active><b>#</b>meeting-notes.md<small>docs/</small></span>
+                <span><b>#</b>meetings-2026.md<small>archive/</small></span>
+                <span><b>#</b>team-meeting.md<small>wiki/</small></span>
+              </div>
+            </div>
+            <h3>Your whole folder</h3>
+            <p><kbd>Ctrl</kbd> <kbd>P</kbd> quick open, search and replace across files, <code>[[links]]</code>, backlinks and broken-link checks.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="2">
+            <div class="card__visual" aria-hidden="true">
+              <div class="swatches">
+                <span class="swatch swatch--leaf"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--paper"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--slate"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--sepia"><i></i><i></i><i></i></span>
+                <span class="swatch swatch--contrast"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+            <h3>Make it yours</h3>
+            <p>Five themes in light and dark, accent colors, fonts, size, line height, page width and custom CSS.</p>
+          </article>
+          <article class="card card--3" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="notice-mock">
+                <strong>Another program changed this file.</strong>
+                Your edits and theirs don't overlap, so MarkLeaf merged them.
+                <div class="notice-mock__actions" style="margin-top:12px"><span>Compare</span><span>Undo merge</span></div>
+              </div>
+            </div>
+            <h3>Saving you can trust</h3>
+            <p>Auto-save when you pause. If another editor touched the file, MarkLeaf merges or shows a comparison instead of overwriting.</p>
+          </article>
+          <article class="card card--3" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="copy-rows">
+                <div><span><kbd>Ctrl</kbd><kbd>C</kbd></span><span>Paste into email, chat or docs with headings, tables and code colors intact</span></div>
+                <div><span><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd></span><span>Copy clean Markdown</span></div>
+              </div>
+            </div>
+            <h3>Copy anywhere, paste clean</h3>
+            <p>Paste from web pages, Word, Google Docs or Notion and get tidy Markdown back.</p>
+          </article>
+          <article class="card card--2" data-reveal>
+            <div class="card__visual" aria-hidden="true">
+              <div class="chips"><span class="chip"><svg><use href="#i-pdf"/></svg>PDF</span><span class="chip"><svg><use href="#i-code"/></svg>Single HTML file</span><span class="chip"><svg><use href="#i-sparkle"/></svg>Templates</span></div>
+            </div>
+            <h3>Export and templates</h3>
+            <p>Print-ready PDF, a self-contained HTML file, six built-in templates and your own.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="1">
+            <div class="card__visual" aria-hidden="true">
+              <div class="chips"><span class="chip">Focus mode</span><span class="chip">Presentation</span><span class="chip">Read aloud</span><span class="chip">Fold sections</span></div>
+            </div>
+            <h3>Ways to read</h3>
+            <p>Present slides split by <code>---</code>, listen with on-device voices, or switch to focus mode and see only the text.</p>
+          </article>
+          <article class="card card--2" data-reveal data-reveal-delay="2">
+            <div class="card__visual" aria-hidden="true">
+              <div class="kbd-grid">
+                <div>Command palette<span><kbd>Ctrl</kbd><kbd>K</kbd></span></div>
+                <div>Find and replace<span><kbd>Ctrl</kbd><kbd>H</kbd></span></div>
+                <div>Toolbox from keyboard<span><kbd>Alt</kbd><kbd>F10</kbd></span></div>
+              </div>
+            </div>
+            <h3>Keyboard first</h3>
+            <p>Every action has a shortcut, and the whole editor works without a mouse. Press <kbd>Ctrl</kbd> <kbd>/</kbd> to see them all.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <div class="wrap">
+        <span class="kicker" data-reveal>Privacy by design</span>
+        <h2 data-reveal>Your documents never leave your computer.</h2>
+        <p class="privacy__lead" data-reveal>MarkLeaf runs entirely in your browser. There is nothing to sign up for and nothing to send.</p>
+        <div class="privacy__grid">
+          <div class="privacy__item" data-reveal>
+            <svg aria-hidden="true"><use href="#i-server"/></svg>
+            <h3>No servers</h3>
+            <p>Reading, editing, saving and version history all happen on your device.</p>
+          </div>
+          <div class="privacy__item" data-reveal data-reveal-delay="1">
+            <svg aria-hidden="true"><use href="#i-eye-off"/></svg>
+            <h3>No analytics or tracking</h3>
+            <p>No usage data, no cookies, no third-party scripts inside the extension.</p>
+          </div>
+          <div class="privacy__item" data-reveal data-reveal-delay="2">
+            <svg aria-hidden="true"><use href="#i-box"/></svg>
+            <h3>Everything bundled</h3>
+            <p>Fonts, math and diagram libraries ship inside the extension, so it works offline.</p>
+          </div>
+        </div>
+        <p class="permissions" data-reveal>
+          It asks for only: <code>storage</code> <code>activeTab</code> <code>scripting</code> <code>file:///*</code> <code>raw.githubusercontent.com</code>
+          <a href="https://serbi2012.github.io/markleaf-privacy/">Read the privacy policy →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">Why MarkLeaf</span>
+          <h2>Reading and editing, finally on the same page</h2>
+        </div>
+        <div class="compare" data-reveal>
+          <table>
+            <thead>
+              <tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Read-only viewers</th><th scope="col">Split-preview editors</th><th scope="col" class="is-us">MarkLeaf</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Shows .md as a clean document</th><td><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td><td><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">Edit on the page you read</th><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">Opens right inside Chrome</th><td><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">Saves back to the original file</th><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">Rewrites only the lines you changed</th><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="Varies"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+              <tr><th scope="row">Local version history</th><td><span class="no" aria-label="No"><svg><use href="#i-dash"/></svg></span></td><td><span class="no" aria-label="Varies"><svg><use href="#i-dash"/></svg></span></td><td class="is-us"><span class="yes" aria-label="Yes"><svg><use href="#i-check"/></svg></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare__note">Comparison with what is typical for each kind of tool; individual products vary.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section__head" data-reveal>
+          <span class="kicker">FAQ</span>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq" data-reveal>
+          <div>
+            <details>
+              <summary>How do I open a local .md file in Chrome?</summary>
+              <p>Install MarkLeaf, then turn on "Allow access to file URLs" in Chrome's extension details for MarkLeaf — the welcome page has a button for it. Now drag any .md file into a Chrome window, or open it with a <code>file:///</code> address.</p>
+            </details>
+            <details>
+              <summary>Can I edit a Markdown file and save it back?</summary>
+              <p>Yes. Click the text and edit. The first time you save, Chrome asks you to pick the file or allow its folder. After that MarkLeaf saves automatically when you pause, rewriting only the parts you changed.</p>
+            </details>
+            <details>
+              <summary>Will it mess up my formatting or git history?</summary>
+              <p>No. MarkLeaf keeps the original text of everything you didn't touch, including list markers, spacing and line breaks. Fix one word and <code>git diff</code> shows one line.</p>
+            </details>
+            <details>
+              <summary>Does it work with GitHub?</summary>
+              <p>Markdown files opened with GitHub's "Raw" button show up as documents. You can also allow other sites one at a time from the toolbar button.</p>
+            </details>
+          </div>
+          <div>
+            <details>
+              <summary>Is my data sent anywhere?</summary>
+              <p>No. MarkLeaf has no servers, analytics or tracking. All fonts and libraries are bundled in the extension. See the <a href="https://serbi2012.github.io/markleaf-privacy/">privacy policy</a>.</p>
+            </details>
+            <details>
+              <summary>Does it work in Edge or Whale?</summary>
+              <p>MarkLeaf is built for Chromium browsers. Edge and Whale can install it from the Chrome Web Store.</p>
+            </details>
+            <details>
+              <summary>Which languages does it support?</summary>
+              <p>The interface is in English and Korean and follows your browser language. Documents can be in any language.</p>
+            </details>
+            <details>
+              <summary>How much does it cost?</summary>
+              <p>MarkLeaf is free. No account, no trial, no limits.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="final" data-reveal>
+        <img src="images/icon.svg" alt="" width="84" height="84">
+        <h2>Give your Markdown files the reader they deserve.</h2>
+        <p>Install in seconds. Open any .md file. Start editing.</p>
+        <a class="button button--light" href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=final">
+          <svg aria-hidden="true"><use href="#i-chrome"/></svg>Add to Chrome — it's free
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="wrap">
-      <span>© MarkLeaf</span>
-      <span><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=footer">Chrome Web Store</a> · <a href="https://serbi2012.github.io/markleaf-privacy/">Privacy</a> · <a href="ko/" hreflang="ko" lang="ko">한국어</a></span>
+      <div class="footer__inner">
+        <div>
+          <a class="brand" href="./"><img src="images/icon.svg" alt="" width="30" height="30">MarkLeaf</a>
+          <p>A Markdown viewer and editor for Chrome. Read beautifully, edit in place, save back to the file.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#tour">Features</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia?utm_source=markleaf-site&amp;utm_medium=footer">Chrome Web Store</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>More</h4>
+          <ul>
+            <li><a href="https://serbi2012.github.io/markleaf-privacy/">Privacy policy</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/markleaf/cnhfebgieoikabibmdeafajkccchadia/support">Support</a></li>
+            <li><a href="ko/" hreflang="ko" lang="ko">한국어</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__bottom">© <span data-year>2026</span> MarkLeaf</p>
     </div>
   </footer>
 </body>
