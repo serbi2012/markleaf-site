@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://serbi2012.github.io/markleaf-site/sitemap.xml
+Sitemap: https://markleaf-site.vercel.app/sitemap.xml
